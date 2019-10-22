@@ -1,0 +1,19 @@
+[package]
+name = "fudd"
+version = "0.1.0"
+authors = ["Guppy <alexanderguppy@aematech.co.uk>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "*"
+lazy_static = "*"
+
+[dev-dependencies]
+criterion = "*"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
+#path = ".C:/rust/fudd/src/benches/my_benchmark"
