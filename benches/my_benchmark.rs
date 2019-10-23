@@ -16,11 +16,13 @@ pub fn criterion_benchmark_rabbit_fire_script(c: &mut Criterion) {
 
 pub fn criterion_benchmark_dictionary(criterion: &mut Criterion) {
     let word_list = include_str!("./words.txt");
-    criterion
-        .sample_size(20)
-        .bench_function("dictionary", |b| b.iter(|| get_fudd(black_box(word_list))));
+    criterion.bench_function("dictionary", |b| b.iter(|| get_fudd(black_box(word_list))));
 }
 
-criterion_group!(long_test, criterion_benchmark_dictionary);
+criterion_group!(
+name = long_test;
+config = Criterion::default().sample_size(30); 
+targets = criterion_benchmark_dictionary
+ );
 criterion_group!(benches, criterion_benchmark_rabbit_fire_script);
 criterion_main!(benches, long_test);
