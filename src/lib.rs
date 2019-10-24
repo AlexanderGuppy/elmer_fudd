@@ -68,4 +68,16 @@ mod tests {
         let result = get_fudd("thats");
         assert_eq!(result, "dats");
     }
+
+    #[test]
+    fn given_two_lines_expect_dialect_applied() {
+        let two_lines = "Shh. Be very, very quiet. I'm hunting rabbits.
+(laughs) Oh boy, rabbit tracks.";
+        let result = get_fudd(&two_lines);
+
+        assert_eq!(
+            result,
+            "Shh. Be vewy, vewy qwiet. I'm hunting wabbits.\n(waughs) Oh boy, wabbit twacks."
+        );
+    }
 }
